@@ -232,7 +232,7 @@ function App() {
 
     <a
       className="button secondary"
-      href="mailto:Panda.Enterprises.712@gmail.com?subject=Event Inquiry"
+href="https://mail.google.com/mail/?view=cm&fs=1&to=Panda.Enterprises.712@gmail.com&su=Event%20Inquiry"
     >
       Email Panda Enterprises
     </a>
