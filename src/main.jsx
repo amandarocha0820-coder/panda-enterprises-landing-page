@@ -58,8 +58,13 @@ function App() {
             <p className="heroText">Panda Enterprises helps organize vendor markets, fundraisers, seasonal events, food truck events, and community gatherings with a creative, organized, and welcoming touch.</p>
             <div className="buttons">
               <a className="button primary" href="#vendors">Apply as a Vendor</a>
-              <a className="button secondary" href="#contact">Request Event Services</a>
-            </div>
+<a
+  className="button secondary"
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=Panda.Enterprises.712@gmail.com&su=Event%20Inquiry"
+  target="_blank"
+>
+  Email Panda Enterprises
+</a>
           </div>
           <div className="heroCard">
             <PartyPopper size={70} />
