@@ -199,27 +199,6 @@ function App() {
   </p>
 </section>
 
-            <div className="card">
-              <ClipboardList className="tealIcon" />
-              <h3>Vendor Fee Calculator</h3>
-              <p>This helps vendors estimate their total before applying.</p>
-              <label>Space Type
-                <select value={spaceType} onChange={(e) => setSpaceType(e.target.value)}>
-                  <option value="indoor">Indoor - $50</option>
-                  <option value="outdoor">Outdoor - $40</option>
-                </select>
-              </label>
-              <label>Number of Spaces
-                <input type="number" min="1" value={spaces} onChange={(e) => setSpaces(Math.max(1, Number(e.target.value)))} />
-              </label>
-              <div className="total">
-                <span>Estimated Total</span>
-                <strong>${vendorTotal}</strong>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="contact" className="contact section">
           <div className="container contactGrid">
             <div>
