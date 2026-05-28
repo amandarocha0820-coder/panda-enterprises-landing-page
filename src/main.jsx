@@ -15,7 +15,6 @@ function App() {
 
   const vendorLinks = [
     { event: 'Christmas in July', date: 'July 25', status: 'Now accepting vendors', link: '#' },
-    { event: 'Community Theatre Fundraiser', date: 'August 1', status: 'Coming soon', link: '#' },
     { event: 'Future Events', date: 'TBA', status: 'Join our vendor list', link: '#' },
   ];
 
