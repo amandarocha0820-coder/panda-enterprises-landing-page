@@ -118,10 +118,6 @@ function App() {
               <label>Number of Spaces
                 <input type="number" min="1" value={spaces} onChange={(e) => setSpaces(Math.max(1, Number(e.target.value)))} />
               </label>
-              <label className="check">
-                <input type="checkbox" checked={electric} onChange={(e) => setElectric(e.target.checked)} />
-                Add electric, if available
-              </label>
               <div className="total">
                 <span>Estimated Total</span>
                 <strong>${vendorTotal}</strong>
