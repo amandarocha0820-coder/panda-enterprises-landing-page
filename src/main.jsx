@@ -18,14 +18,14 @@ function App() {
     event: 'Christmas in July',
     date: 'July 25',
     status: 'Now accepting vendors',
-    link: https://forms.gle/eGkfkzididuvps5e8
+    link: 'https://forms.gle/eGkfkzididuvps5e8'
   },
 
   {
     event: 'Future Events',
     date: 'TBA',
     status: 'Join our vendor list',
-    link:  https://forms.gle/7nG1Av17Kxa34zFT7
+    link:  'https://forms.gle/7nG1Av17Kxa34zFT7'
   },
 ];
 
