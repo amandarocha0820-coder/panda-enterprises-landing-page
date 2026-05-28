@@ -1,3 +1,4 @@
+import pandaLogo from './panda-logo.jpg';
 import React, { useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { CalendarDays, ClipboardList, DollarSign, Mail, MapPin, PartyPopper, Store, Truck } from 'lucide-react';
