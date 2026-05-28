@@ -35,7 +35,7 @@ function App() {
       <header className="header">
         <div className="container nav">
           <div className="brand">
-            <div className="logo">🐼</div>
+<img src={pandaLogo} alt="Panda Enterprises Logo" className="logoImage" />
             <div>
               <strong>Panda Enterprises</strong>
               <span>Events • Vendors • Community</span>
