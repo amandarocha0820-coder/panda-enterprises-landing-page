@@ -51,15 +51,11 @@ a {
   color: #c4b5fd;
 }
 
-.logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #9333ea, #4c1d95);
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-  box-shadow: 0 0 18px rgba(147,51,234,.45);
+.logoImage {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 14px;
 }
 
 nav {
