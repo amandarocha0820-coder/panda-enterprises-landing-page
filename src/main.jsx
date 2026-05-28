@@ -13,10 +13,21 @@ function App() {
     return spaces * base;
   }, [spaceType, spaces, electric]);
 
-  const vendorLinks = [
-    { event: 'Christmas in July', date: 'July 25', status: 'Now accepting vendors', link: '#' },
-    { event: 'Future Events', date: 'TBA', status: 'Join our vendor list', link: '#' },
-  ];
+ const vendorLinks = [
+  {
+    event: 'Christmas in July',
+    date: 'July 25',
+    status: 'Now accepting vendors',
+    link: https://forms.gle/eGkfkzididuvps5e8
+  },
+
+  {
+    event: 'Future Events',
+    date: 'TBA',
+    status: 'Join our vendor list',
+    link:  https://forms.gle/7nG1Av17Kxa34zFT7
+  },
+];
 
   return (
     <div className="site">
