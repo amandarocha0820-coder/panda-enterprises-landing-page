@@ -66,6 +66,7 @@ function App() {
   Email Panda Enterprises
 </a>
           </div>
+                </div>
           <div className="heroCard">
             <PartyPopper size={70} />
             <h2>Event photo or branded banner goes here</h2>
