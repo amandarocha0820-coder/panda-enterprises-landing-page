@@ -205,11 +205,34 @@ function App() {
               <h2>Ready to plan something fun?</h2>
               <p>Reach out to discuss vendor events, fundraisers, community partnerships, and food truck opportunities.</p>
             </div>
-            <div className="contactBox">
-              <p><Mail size={20} /> your-email@example.com</p>
-              <p><MapPin size={20} /> Sioux City area and surrounding communities</p>
-              <a className="button primary full" href="mailto:your-email@example.com">Contact Panda Enterprises</a>
-            </div>
+        <div className="contactBox">
+  <p>
+    <Mail size={20} />
+    Panda.Enterprises.712@gmail.com
+  </p>
+
+  <p>
+    <MapPin size={20} />
+    Sioux City area and surrounding communities
+  </p>
+
+  <div className="buttons">
+    <a
+      className="button primary"
+      href="https://www.facebook.com/PandaEnterprisesLLC"
+      target="_blank"
+    >
+      Message Us on Facebook
+    </a>
+
+    <a
+      className="button secondary"
+      href="mailto:Panda.Enterprises.712@gmail.com?subject=Event Inquiry"
+    >
+      Email Panda Enterprises
+    </a>
+  </div>
+</div>
           </div>
         </section>
       </main>
