@@ -10,8 +10,7 @@ function App() {
 
   const vendorTotal = useMemo(() => {
     const base = spaceType === 'indoor' ? 50 : 40;
-    const electricFee = electric ? 10 : 0;
-    return spaces * base + electricFee;
+    return spaces * base;
   }, [spaceType, spaces, electric]);
 
   const vendorLinks = [
