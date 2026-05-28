@@ -99,21 +99,105 @@ function App() {
           </div>
         </section>
 
-        <section id="pricing" className="container section">
-          <div className="sectionTitle">
-            <h2>Simple Pricing</h2>
-            <p>Clear starting prices. Custom quotes available for larger events and full-service planning.</p>
-          </div>
-          <div className="grid two">
-            <div className="card">
-              <DollarSign className="pinkIcon" />
-              <h3>Vendor Booth Pricing</h3>
-              <div className="priceRows">
-                <div><span>Indoor vendor space</span><strong>$50</strong></div>
-                <div><span>Outdoor vendor space</span><strong>$40</strong></div>
-                <div><span>Optional electric</span><strong>$10</strong></div>
-              </div>
-            </div>
+      <section id="pricing" className="container section">
+  <div className="sectionTitle">
+    <h2>Event Services Packages</h2>
+    <p>Click each package to see what Panda Enterprises handles and what the client handles.</p>
+  </div>
+
+  <div className="grid three">
+    <details className="packageCard">
+      <summary>
+        <h3>Basic Package</h3>
+        <p>Vendor Coordination + Layout Planning</p>
+        <strong>$700</strong>
+      </summary>
+      <div className="packageDetails">
+        <h4>Panda Enterprises:</h4>
+        <ul>
+          <li>Creates vendor application forms</li>
+          <li>Manages incoming applications and fills available space</li>
+          <li>Designs the event layout for smooth flow</li>
+        </ul>
+
+        <h4>The Client:</h4>
+        <ul>
+          <li>Handles all day-of event management</li>
+          <li>Manages vendor check-in and any issues during the event</li>
+        </ul>
+
+        <p><strong>Ideal for:</strong> Teams that want help getting organized but are comfortable running the event themselves.</p>
+        <a className="button primary full" href="#contact">Ask About Basic</a>
+      </div>
+    </details>
+
+    <details className="packageCard featured">
+      <summary>
+        <h3>Stress-Free Event Package</h3>
+        <p>Vendor Coordination + Layout + Day-of Management</p>
+        <strong>$1,100</strong>
+        <em>Most Popular</em>
+      </summary>
+      <div className="packageDetails">
+        <h4>Panda Enterprises:</h4>
+        <ul>
+          <li>Creates vendor application forms</li>
+          <li>Manages applications and fills available space</li>
+          <li>Designs the event layout for smooth flow</li>
+          <li>Handles full day-of event management</li>
+          <li>Vendor check-in and placement</li>
+          <li>Helps maintain event organization and vendor guideline compliance</li>
+          <li>Coordinates timing and flow</li>
+          <li>Troubleshoots issues as they arise</li>
+          <li>Makes sure the event is easy for customers to navigate and enjoy</li>
+        </ul>
+
+        <h4>The Client:</h4>
+        <ul>
+          <li>Focuses on guests, fundraising, and overall experience</li>
+          <li>Does not manage vendors or logistics</li>
+        </ul>
+
+        <p><strong>Ideal for:</strong> Teams that want a well-run event without the stress of managing it themselves.</p>
+        <a className="button primary full" href="#contact">Ask About Stress-Free</a>
+      </div>
+    </details>
+
+    <details className="packageCard">
+      <summary>
+        <h3>Premium Package</h3>
+        <p>Full-Service Event Management</p>
+        <strong>$1,300</strong>
+      </summary>
+      <div className="packageDetails">
+        <h4>Panda Enterprises:</h4>
+        <ul>
+          <li>Creates vendor application forms</li>
+          <li>Manages applications and fills available space</li>
+          <li>Designs the full event layout for optimal flow</li>
+          <li>Handles full day-of event management, including vendor coordination and issue resolution</li>
+          <li>Oversees setup and teardown</li>
+          <li>Provides marketing support and social media promotion</li>
+          <li>Coordinates volunteers, including scheduling, roles, and on-site direction</li>
+          <li>Provides permit guidance so the client knows what is required and where to obtain approvals</li>
+        </ul>
+
+        <h4>The Client:</h4>
+        <ul>
+          <li>Focuses on hosting, guests, and the overall event experience</li>
+          <li>Has minimal involvement in logistics and operations</li>
+        </ul>
+
+        <p><strong>Ideal for:</strong> A fully supported, hands-off event with professional execution from start to finish.</p>
+        <a className="button primary full" href="#contact">Ask About Premium</a>
+      </div>
+    </details>
+  </div>
+
+  <p className="paymentNote">
+    A 20% non-refundable retainer is required at signing to secure your event date. Custom packages are available upon request.
+  </p>
+</section>
 
             <div className="card">
               <ClipboardList className="tealIcon" />
