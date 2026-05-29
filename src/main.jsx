@@ -80,12 +80,6 @@ function App() {
   </video>
 </div>
 
-    <p>
-      Vendor markets, fundraisers, and community gatherings
-      organized with creativity, structure, and heart.
-    </p>
-  </div>
-</div>
         </section>
 
         <section id="services" className="container section">
