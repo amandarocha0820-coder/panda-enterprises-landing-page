@@ -1,4 +1,5 @@
 import pandaLogo from './panda-logo.jpg';
+import marketVideo from './Market Video 2026.mp4';
 import React, { useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { CalendarDays, ClipboardList, DollarSign, Mail, MapPin, PartyPopper, Store, Truck } from 'lucide-react';
