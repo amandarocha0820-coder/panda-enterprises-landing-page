@@ -68,11 +68,26 @@ function App() {
 </a>
           </div>
                 </div>
-          <div className="heroCard">
-            <PartyPopper size={70} />
-            <h2>Event photo or branded banner goes here</h2>
-            <p>Use a great market photo, vendor setup, or Panda Enterprises graphic.</p>
-          </div>
+<div className="heroCard videoCard">
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="heroVideo"
+  >
+    <source src={marketVideo} type="video/mp4" />
+  </video>
+
+  <div className="videoOverlay">
+    <h2>Community Events Made Simple</h2>
+
+    <p>
+      Vendor markets, fundraisers, and community gatherings
+      organized with creativity, structure, and heart.
+    </p>
+  </div>
+</div>
         </section>
 
         <section id="services" className="container section">
