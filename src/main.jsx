@@ -79,8 +79,6 @@ function App() {
     <source src={marketVideo} type="video/mp4" />
   </video>
 
-  <div className="videoOverlay">
-    <h2>Community Events Made Simple</h2>
 
     <p>
       Vendor markets, fundraisers, and community gatherings
