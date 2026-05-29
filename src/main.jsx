@@ -78,7 +78,7 @@ function App() {
   >
     <source src={marketVideo} type="video/mp4" />
   </video>
-
+</div>
 
     <p>
       Vendor markets, fundraisers, and community gatherings
