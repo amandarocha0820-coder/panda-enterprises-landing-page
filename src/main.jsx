@@ -127,6 +127,23 @@ const totalEstimate = services
               <p>One easy place for vendors to find current and upcoming opportunities.</p>
             </div>
             <div className="grid three">
+              <div className="card">
+  <p className="date">Now Open</p>
+
+  <h3>Volunteer Opportunities</h3>
+
+  <p>
+    Join our volunteer network and help support
+    community events and experiences.
+  </p>
+
+  <a
+    className="button primary full"
+    href="https://forms.gle/iw4D7DPiiVyZCbkb8"
+  >
+    Volunteer With Us
+  </a>
+</div>
               {vendorLinks.map((event) => (
                 <div className="card" key={event.event}>
                   <p className="date">{event.date}</p>
