@@ -56,7 +56,7 @@ const totalEstimate = services
 <img src={pandaLogo} alt="Panda Enterprises Logo" className="logoImage" />
             <div>
               <strong>Panda Enterprises</strong>
-              <span>Events • Vendors • Community</span>
+           <span>Community Events • Vendor Markets • Event Planning</span>
             </div>
           </div>
           <nav>
