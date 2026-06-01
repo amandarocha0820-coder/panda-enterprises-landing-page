@@ -83,9 +83,7 @@ const totalEstimate = services
 <p className="heroText">
   From vendor coordination and fundraisers to festivals, markets, and special events, we help turn ideas into well-organized and exciting experiences.
 </p>
-<p className="heroText">
-  From vendor coordination and fundraisers to festivals, markets, and special events, we help turn ideas into well-organized and exciting experiences.
-</p>
+
             <div className="buttons">
               <a className="button primary" href="#vendors">Apply as a Vendor</a>
 <a
