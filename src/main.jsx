@@ -9,9 +9,8 @@ function App() {
 const [selectedServices, setSelectedServices] = useState([]);
 
 const services = [
-  { name: 'Vendor Coordination', price: 500 },
+  { name: 'Full Vendor Coordination', price: 750 },
   { name: 'Event Layout & Planning', price: 300 },
-  { name: 'Vendor Application Management', price: 250 },
   { name: 'Day-of Event Management', price: 600 },
   { name: 'Setup & Teardown Coordination', price: 400 },
   { name: 'Marketing Assistance', price: 350 },
