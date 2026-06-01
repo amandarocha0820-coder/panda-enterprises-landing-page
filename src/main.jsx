@@ -73,9 +73,16 @@ const totalEstimate = services
           <div>
             <p className="pill">Creating Events People Remember</p>
 <h1>
-  Panda Enterprises specializes in creating engaging events and memorable experiences designed to bring people together through creativity, organization, and community connection.
+  Panda Enterprises
 </h1>
 
+<p className="heroSubheading">
+  Specializing in creating engaging events and memorable experiences designed to bring people together through creativity, organization, and community connection.
+</p>
+
+<p className="heroText">
+  From vendor coordination and fundraisers to festivals, markets, and special events, we help turn ideas into well-organized and exciting experiences.
+</p>
 <p className="heroText">
   From vendor coordination and fundraisers to festivals, markets, and special events, we help turn ideas into well-organized and exciting experiences.
 </p>
