@@ -6,9 +6,31 @@ import { CalendarDays, ClipboardList, DollarSign, Mail, MapPin, PartyPopper, Sto
 import './styles.css';
 
 function App() {
-  const [spaceType, setSpaceType] = useState('indoor');
-  const [spaces, setSpaces] = useState(1);
-  const [electric, setElectric] = useState(false);
+const [selectedServices, setSelectedServices] = useState([]);
+
+const services = [
+  { name: 'Vendor Coordination', price: 500 },
+  { name: 'Event Layout & Planning', price: 300 },
+  { name: 'Vendor Application Management', price: 250 },
+  { name: 'Day-of Event Management', price: 600 },
+  { name: 'Setup & Teardown Coordination', price: 400 },
+  { name: 'Marketing Assistance', price: 350 },
+  { name: 'Social Media Promotion', price: 400 },
+  { name: 'Volunteer Coordination', price: 200 },
+  { name: 'Permit Guidance', price: 250 },
+];
+
+const toggleService = (serviceName) => {
+  setSelectedServices((prev) =>
+    prev.includes(serviceName)
+      ? prev.filter((s) => s !== serviceName)
+      : [...prev, serviceName]
+  );
+};
+
+const totalEstimate = services
+  .filter((service) => selectedServices.includes(service.name))
+  .reduce((sum, service) => sum + service.price, 0); 
 
   const vendorTotal = useMemo(() => {
     const base = spaceType === 'indoor' ? 50 : 40;
