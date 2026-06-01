@@ -174,7 +174,7 @@ const totalEstimate = services
     <details className="packageCard featured">
       <summary>
         <h3>Standard Package</h3>
-        <p>Vendor Coordination + Layout + Day-of Management</p>
+        <p>Vendor Coordination + Layout Planning + Day-of Management</p>
         <strong>$1,100</strong>
         <em>Most Popular</em>
       </summary>
