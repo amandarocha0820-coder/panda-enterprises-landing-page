@@ -235,6 +235,44 @@ const totalEstimate = services
   </p>
 </section>
 
+<section className="container section">
+  <div className="sectionTitle">
+    <h2>Build Your Own Estimate</h2>
+
+    <p>
+      Select individual services to see an estimated total.
+      Packages may offer better overall value depending on your event needs.
+    </p>
+  </div>
+
+  <div className="estimateBox">
+    {services.map((service) => (
+      <label key={service.name} className="check">
+        <input
+          type="checkbox"
+          checked={selectedServices.includes(service.name)}
+          onChange={() => toggleService(service.name)}
+        />
+
+        <span>
+          {service.name} — ${service.price}
+        </span>
+      </label>
+    ))}
+
+    <div className="totalEstimate">
+      <span>Estimated Total</span>
+
+      <strong>${totalEstimate}</strong>
+
+      <p>
+        Estimates are for planning purposes only.
+        Final pricing depends on event size,
+        location, staffing, and scope.
+      </p>
+    </div>
+  </div>
+</section>
         <section id="contact" className="contact section">
           <div className="container contactGrid">
             <div>
