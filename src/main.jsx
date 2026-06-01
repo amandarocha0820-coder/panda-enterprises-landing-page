@@ -71,7 +71,7 @@ const totalEstimate = services
       <main>
         <section className="container hero">
           <div>
-            <p className="pill">Community-centered event planning</p>
+            <p className="pill">Creating Events People Remember</p>
             <h1>Bringing vendors, families, and communities together.</h1>
             <p className="heroText">Panda Enterprises helps organize vendor markets, fundraisers, seasonal events, food truck events, and community gatherings with a creative, organized, and welcoming touch.</p>
             <div className="buttons">
