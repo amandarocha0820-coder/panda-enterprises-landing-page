@@ -32,11 +32,6 @@ const totalEstimate = services
   .filter((service) => selectedServices.includes(service.name))
   .reduce((sum, service) => sum + service.price, 0); 
 
-  const vendorTotal = useMemo(() => {
-    const base = spaceType === 'indoor' ? 50 : 40;
-    return spaces * base;
-  }, [spaceType, spaces, electric]);
-
  const vendorLinks = [
   {
     event: 'Christmas in July',
