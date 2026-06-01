@@ -72,8 +72,13 @@ const totalEstimate = services
         <section className="container hero">
           <div>
             <p className="pill">Creating Events People Remember</p>
-            <h1>Bringing vendors, families, and communities together.</h1>
-            <p className="heroText">Panda Enterprises helps organize vendor markets, fundraisers, seasonal events, food truck events, and community gatherings with a creative, organized, and welcoming touch.</p>
+<h1>
+  Panda Enterprises specializes in creating engaging events and memorable experiences designed to bring people together through creativity, organization, and community connection.
+</h1>
+
+<p className="heroText">
+  From vendor coordination and fundraisers to festivals, markets, and special events, we help turn ideas into well-organized and exciting experiences.
+</p>
             <div className="buttons">
               <a className="button primary" href="#vendors">Apply as a Vendor</a>
 <a
