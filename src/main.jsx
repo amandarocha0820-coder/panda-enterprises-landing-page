@@ -207,7 +207,7 @@ const totalEstimate = services
       <summary>
         <h3>Premium Package</h3>
         <p>Full-Service Event Management</p>
-        <strong>$1,300</strong>
+        <strong>$2,250</strong>
       </summary>
       <div className="packageDetails">
         <h4>Panda Enterprises:</h4>
