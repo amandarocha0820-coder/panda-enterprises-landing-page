@@ -127,23 +127,7 @@ const totalEstimate = services
               <p>One easy place for vendors to find current and upcoming opportunities.</p>
             </div>
             <div className="grid three">
-              <div className="card">
-  <p className="date">Now Open</p>
-
-  <h3>Volunteer Opportunities</h3>
-
-  <p>
-    Join our volunteer network and help support
-    community events and experiences.
-  </p>
-
-  <a
-    className="button primary full"
-    href="https://forms.gle/iw4D7DPiiVyZCbkb8"
-  >
-    Volunteer With Us
-  </a>
-</div>
+             
               {vendorLinks.map((event) => (
                 <div className="card" key={event.event}>
                   <p className="date">{event.date}</p>
@@ -155,7 +139,36 @@ const totalEstimate = services
             </div>
           </div>
         </section>
+<section className="container section">
+  <div className="sectionTitle">
+    <h2>Volunteer Opportunities</h2>
 
+    <p>
+      Join our volunteer network and help support
+      community events, vendor markets, and fundraisers.
+    </p>
+  </div>
+
+  <div className="grid two">
+    <div className="card">
+      <p className="date">Now Open</p>
+
+      <h3>Volunteer Network</h3>
+
+      <p>
+        Volunteers help with setup, vendor support,
+        guest assistance, activities, and event operations.
+      </p>
+
+      <a
+        className="button primary full"
+        href="YOUR GOOGLE FORM LINK"
+      >
+        Apply to Volunteer
+      </a>
+    </div>
+  </div>
+</section>
       <section id="pricing" className="container section">
   <div className="sectionTitle">
     <h2>Event Services Packages</h2>
