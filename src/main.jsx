@@ -33,7 +33,7 @@ const totalEstimate = services
 
  const vendorLinks = [
   {
-    event: 'Christmas in July @ Sioux City Railroad Museum',
+    event: 'Christmas in July at Sioux City Railroad Museum',
     date: 'July 25, 2026',
     status: 'Now accepting vendors',
     link: 'https://forms.gle/eGkfkzididuvps5e8'
