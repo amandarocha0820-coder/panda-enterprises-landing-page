@@ -48,7 +48,7 @@ const totalEstimate = services
   {
     event: 'Sioux City Community Theatre Vendor Applications',
     date: 'August 1st, 2026',
-    status: 'Now accepting applications',
+    status: 'Now accepting vendors',
     link: 'https://forms.gle/1CL1VXYn1shnPm2u5'
   },
  ];
