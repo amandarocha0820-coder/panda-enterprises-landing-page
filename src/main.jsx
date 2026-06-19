@@ -159,8 +159,7 @@ const totalEstimate = services
     <div className="card">
       <p className="date">Now Open</p>
 
-      <h3>Volunteer Network</h3>
-
+<h3>Christmas in July Volunteer Application</h3>
       <p>
         Volunteers help with setup, vendor support,
         guest assistance, activities, and event operations.
@@ -173,6 +172,23 @@ const totalEstimate = services
         Apply to Volunteer
       </a>
     </div>
+    <div className="card">
+  <p className="date">Now Open</p>
+
+  <h3>Raise the Roof! Market Volunteer Application</h3>
+
+  <p>
+    Help support the Raise the Roof! Market with event setup,
+    guest assistance, vendor support, and event-day needs.
+  </p>
+
+  <a
+    className="button primary full"
+    href="PASTE RAISE THE ROOF VOLUNTEER FORM LINK HERE"
+  >
+    Apply to Volunteer
+  </a>
+</div>
   </div>
 </section>
       <section id="pricing" className="container section">
