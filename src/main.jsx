@@ -150,8 +150,10 @@ const totalEstimate = services
     <h2>Volunteer Opportunities</h2>
 
     <p>
-      Join our volunteer network and help support
-      community events, vendor markets, and fundraisers.
+      <p>
+  Current volunteer opportunities are available for upcoming events.
+  Sign up today and help create memorable experiences for our community.
+</p>
     </p>
   </div>
 
@@ -159,7 +161,7 @@ const totalEstimate = services
     <div className="card">
       <p className="date">Now Open</p>
 
-<h3>Christmas in July Volunteer Application</h3>
+<h3>Christmas in July Volunteer Sign Up</h3>
       <p>
         Volunteers help with setup, vendor support,
         guest assistance, activities, and event operations.
@@ -169,13 +171,13 @@ const totalEstimate = services
         className="button primary full"
         href="https://forms.gle/BohAsuRxUZGqxAob9"
       >
-        Apply to Volunteer
+        Sign Up to Volunteer
       </a>
     </div>
     <div className="card">
   <p className="date">Now Open</p>
 
-  <h3>Raise the Roof! Market Volunteer Application</h3>
+ <h3>Raise the Roof! Market Volunteer Sign Up</h3>
 
   <p>
     Help support the Raise the Roof! Market with event setup,
@@ -186,7 +188,7 @@ const totalEstimate = services
     className="button primary full"
     href="PASTE RAISE THE ROOF VOLUNTEER FORM LINK HERE"
   >
-    Apply to Volunteer
+    Sign Up to Volunteer
   </a>
 </div>
   </div>
