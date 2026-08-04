@@ -38,20 +38,14 @@ const totalEstimate = services
     status: 'Now accepting vendors',
     link: 'https://forms.gle/eGkfkzididuvps5e8'
   },
-
+const vendorLinks = [
   {
-    event: 'Future Events',
-    date: 'TBA',
-    status: 'Join our vendor list',
-    link:  'https://forms.gle/7nG1Av17Kxa34zFT7'
+    event: 'Upcoming Vendor Opportunities',
+    date: 'New events coming soon',
+    status: 'Join our vendor list to hear about future markets and events.',
+    link: 'https://forms.gle/7nG1Av17Kxa34zFT7'
   },
-  {
-    event: 'Sioux City Community Theatre Vendor Applications',
-    date: 'August 1st, 2026',
-    status: 'Now accepting vendors',
-    link: 'https://forms.gle/1CL1VXYn1shnPm2u5'
-  },
- ];
+];
 
   return (
     <div className="site">
