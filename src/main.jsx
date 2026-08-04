@@ -31,13 +31,6 @@ const totalEstimate = services
   .filter((service) => selectedServices.includes(service.name))
   .reduce((sum, service) => sum + service.price, 0); 
 
- const vendorLinks = [
-  {
-    event: 'Christmas in July at Sioux City Railroad Museum',
-    date: 'July 25, 2026',
-    status: 'Now accepting vendors',
-    link: 'https://forms.gle/eGkfkzididuvps5e8'
-  },
 const vendorLinks = [
   {
     event: 'Upcoming Vendor Opportunities',
@@ -139,54 +132,7 @@ const vendorLinks = [
             </div>
           </div>
         </section>
-<section className="container section">
-  <div className="sectionTitle">
-    <h2>Volunteer Opportunities</h2>
 
-    <p>
-      <p>
-  Current volunteer opportunities are available for upcoming events.
-  Sign up today and help create memorable experiences for our community.
-</p>
-    </p>
-  </div>
-
-  <div className="grid two">
-    <div className="card">
-      <p className="date">Now Open</p>
-
-<h3>Christmas in July Volunteer Sign Up</h3>
-      <p>
-        Volunteers help with setup, vendor support,
-        guest assistance, activities, and event operations.
-      </p>
-
-      <a
-        className="button primary full"
-        href="https://forms.gle/BohAsuRxUZGqxAob9"
-      >
-        Sign Up to Volunteer
-      </a>
-    </div>
-    <div className="card">
-  <p className="date">Now Open</p>
-
- <h3>Raise the Roof! Market Volunteer Sign Up</h3>
-
-  <p>
-    Help support the Raise the Roof! Market with event setup,
-    guest assistance, vendor support, and event-day needs.
-  </p>
-
-  <a
-    className="button primary full"
-    href="PASTE RAISE THE ROOF VOLUNTEER FORM LINK HERE"
-  >
-    Sign Up to Volunteer
-  </a>
-</div>
-  </div>
-</section>
       <section id="pricing" className="container section">
   <div className="sectionTitle">
     <h2>Event Services Packages</h2>
