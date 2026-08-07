@@ -1,9 +1,118 @@
 import pandaLogo from './panda-logo.jpg';
 import marketVideo from './Market Video 2026.mp4';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { CalendarDays, ClipboardList, DollarSign, Mail, MapPin, PartyPopper, Store, Truck } from 'lucide-react';
+import { ArrowLeft, CalendarDays, Clock, Mail, MapPin, Store, Truck, Users } from 'lucide-react';
 import './styles.css';
+
+const PUBLIC_API_URL = 'https://xapdidzzecekrdxirrje.supabase.co/rest/v1/published_event_pages';
+const PUBLIC_API_KEY = 'sb_publishable_9rkIUSnwWTFe28KQaYHYag_RBjLA3-H';
+
+function displayEventDate(value) {
+  return new Date(value).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+function displayEventTime(value) {
+  return new Date(value).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+}
+
+function eventLocation(event) {
+  return [event.venue_name, event.city, event.state].filter(Boolean).join(' · ');
+}
+
+function EventsPortal() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [problem, setProblem] = useState('');
+  const slug = decodeURIComponent(window.location.pathname.split('/').filter(Boolean)[1] || '');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetch(PUBLIC_API_URL + '?select=*&order=starts_at.asc', {
+      headers: { apikey: PUBLIC_API_KEY }
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('Events are temporarily unavailable.');
+        return response.json();
+      })
+      .then(setEvents)
+      .catch((error) => setProblem(error.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const selected = slug ? events.find((event) => event.slug === slug) : null;
+  const statusLabels = { coming_soon: 'Applications coming soon', open: 'Applications open', waitlist: 'Vendor waitlist', closed: 'Applications closed' };
+
+  if (slug && !loading && !selected) {
+    return <div className="events-site"><EventsHeader/><main className="event-empty"><h1>Event not found</h1><p>This event may not be published yet, or it may have already ended.</p><a className="button primary" href="/events">View upcoming events</a></main></div>;
+  }
+
+  if (selected) return <EventDetail event={selected} statusLabel={statusLabels[selected.application_status]} />;
+
+  return <div className="events-site">
+    <EventsHeader/>
+    <main>
+      <section className="events-hero">
+        <div className="container">
+          <p className="pill">PANDA EVENTS</p>
+          <h1>Come be part of something memorable.</h1>
+          <p>Explore upcoming Panda events, find vendor opportunities, volunteer, sponsor, or make plans to attend.</p>
+        </div>
+      </section>
+      <section className="container events-list-section">
+        <div className="events-heading"><div><span>UPCOMING EVENTS</span><h2>Find your next event</h2></div><p>Everything you need is collected on each event page.</p></div>
+        {loading && <div className="event-empty"><div className="events-loading">P</div><p>Loading upcoming events…</p></div>}
+        {problem && <div className="event-empty"><h3>We couldn’t load events.</h3><p>{problem}</p></div>}
+        {!loading && !problem && events.length === 0 && <div className="event-empty"><CalendarDays/><h3>New events are coming soon.</h3><p>Check back for vendor opportunities, community events, and ways to get involved.</p></div>}
+        <div className="public-event-grid">
+          {events.map((event) => <article className="public-event-card" key={event.id}>
+            <div className="event-card-image" style={event.hero_image_url ? { backgroundImage: `url("${event.hero_image_url}")` } : undefined}>
+              {!event.hero_image_url && <span>PE</span>}
+              <b>{statusLabels[event.application_status]}</b>
+            </div>
+            <div className="event-card-copy">
+              <p className="event-card-date">{displayEventDate(event.starts_at)}</p>
+              <h3>{event.title}</h3>
+              <p>{event.short_description}</p>
+              <div className="event-card-facts"><span><MapPin/> {eventLocation(event) || 'Location coming soon'}</span><span><Clock/> {displayEventTime(event.starts_at)}–{displayEventTime(event.ends_at)}</span></div>
+              <a className="button primary full" href={'/events/' + event.slug}>View event details</a>
+            </div>
+          </article>)}
+        </div>
+      </section>
+    </main>
+  </div>;
+}
+
+function EventsHeader() {
+  return <header className="events-header"><div className="container nav"><a className="brand" href="/"><img src={pandaLogo} alt="Panda Enterprises Logo" className="logoImage"/><div><strong>Panda Events</strong><span>Creating Events People Remember</span></div></a><nav><a href="/events">Upcoming Events</a><a href="/">Hire Panda</a></nav></div></header>;
+}
+
+function EventDetail({ event, statusLabel }) {
+  const options = [
+    ['vendor', 'Apply as a Vendor'], ['food_truck', 'Apply as a Food Truck'], ['volunteer', 'Volunteer'],
+    ['sponsor', 'Become a Sponsor'], ['performer', 'Apply as a Performer'], ['tickets', 'Tickets & Registration']
+  ].filter(([key]) => event[key + '_enabled'] && event[key + '_url']);
+  const fullAddress = [event.address, event.city, event.state].filter(Boolean).join(', ');
+
+  return <div className="events-site"><EventsHeader/><main>
+    <section className="event-detail-hero" style={event.hero_image_url ? { backgroundImage: `linear-gradient(90deg,rgba(16,5,24,.96),rgba(16,5,24,.56)),url("${event.hero_image_url}")` } : undefined}>
+      <div className="container"><a className="event-back" href="/events"><ArrowLeft/> All upcoming events</a><p className="pill">{statusLabel}</p><h1>{event.title}</h1><p>{event.short_description}</p></div>
+    </section>
+    <section className="container event-detail-layout">
+      <article className="event-detail-main">
+        <div className="event-fact-strip"><div><CalendarDays/><span><b>{displayEventDate(event.starts_at)}</b><small>{displayEventTime(event.starts_at)}–{displayEventTime(event.ends_at)}</small></span></div><div><MapPin/><span><b>{event.venue_name || 'Location coming soon'}</b><small>{fullAddress}</small></span></div></div>
+        <section><h2>About this event</h2><p className="event-long-copy">{event.long_description || event.short_description}</p></section>
+        {(event.admission_details || event.parking_details || event.accessibility_details) && <section><h2>Plan your visit</h2><div className="visitor-info-grid">{event.admission_details && <div><h3>Admission</h3><p>{event.admission_details}</p></div>}{event.parking_details && <div><h3>Parking</h3><p>{event.parking_details}</p></div>}{event.accessibility_details && <div><h3>Accessibility</h3><p>{event.accessibility_details}</p></div>}</div></section>}
+      </article>
+      <aside className="get-involved-card"><div className="involved-icon"><Users/></div><h2>Get involved</h2><p>Choose the option that fits you. Each button opens the correct form or registration page.</p>{options.length ? <div className="involved-buttons">{options.map(([key,label]) => <a className="button primary full" href={event[key + '_url']} key={key}>{label}</a>)}</div> : <div className="involved-soon">More opportunities will be added soon.</div>}{event.facebook_url && <a className="facebook-event-link" href={event.facebook_url} target="_blank" rel="noreferrer">View the Facebook event →</a>}</aside>
+    </section>
+  </main></div>;
+}
+
+function Router() {
+  return window.location.pathname.startsWith('/events') ? <EventsPortal/> : <App/>;
+}
 
 function App() {
 const [selectedServices, setSelectedServices] = useState([]);
@@ -53,7 +162,7 @@ const vendorLinks = [
           </div>
           <nav>
             <a href="#services">Services</a>
-            <a href="#vendors">Vendors</a>
+            <a href="/events">Events</a>
             <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -77,7 +186,8 @@ const vendorLinks = [
 </p>
 
             <div className="buttons">
-              <a className="button primary" href="#vendors">Apply as a Vendor</a>
+              <a className="button primary" href="#contact">Request Event Services</a>
+<a className="button secondary" href="/events">Explore Upcoming Events</a>
 <a
   className="button secondary"
   href="https://mail.google.com/mail/?view=cm&fs=1&to=Panda.Enterprises.712@gmail.com&su=Event%20Inquiry"
@@ -110,26 +220,6 @@ const vendorLinks = [
             <InfoCard icon={<Store />} title="Vendor Markets" text="Vendor outreach, applications, booth planning, setup guidance, and event communication." />
             <InfoCard icon={<Truck />} title="Food Truck Events" text="Food truck coordination for indoor/outdoor events, fundraisers, and community gatherings." />
             <InfoCard icon={<CalendarDays />} title="Event Planning" text="Support for seasonal events, fundraisers, family-friendly activities, and community partnerships." />
-          </div>
-        </section>
-
-        <section id="vendors" className="white section">
-          <div className="container">
-            <div className="sectionTitle">
-              <h2>Vendor Applications</h2>
-              <p>One easy place for vendors to find current and upcoming opportunities.</p>
-            </div>
-            <div className="grid three">
-             
-              {vendorLinks.map((event) => (
-                <div className="card" key={event.event}>
-                  <p className="date">{event.date}</p>
-                  <h3>{event.event}</h3>
-                  <p>{event.status}</p>
-                  <a className="button primary full" href={event.link}>Open Application</a>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -316,4 +406,4 @@ function InfoCard({ icon, title, text }) {
   return <div className="card iconCard"><div className="icon">{icon}</div><h3>{title}</h3><p>{text}</p></div>;
 }
 
-createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById('root')).render(<Router />);
