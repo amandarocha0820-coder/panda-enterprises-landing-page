@@ -333,9 +333,8 @@ function App() {
 </p>
 
             <div className="buttons">
-              <a className="button primary hero-service-cta" href="#contact">Request Event Services</a>
-<a className="button hero-events-cta" href="/events">Explore Upcoming Events</a>
-          </div>
+              <a className="button hero-events-cta" href="/events">Explore Upcoming Events</a>
+            </div>
                 </div>
 <div className="heroCard videoCard">
   <video
