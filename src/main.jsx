@@ -311,7 +311,6 @@ function App() {
           <nav>
             <a href="/services">Services</a>
             <a href="/events">Events</a>
-            <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
