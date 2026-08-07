@@ -371,29 +371,14 @@ function App() {
           </div>
         </section>
 
-      <section id="pricing" className="container section package-preview-section">
-  <div className="sectionTitle">
-    <p className="sectionKicker">EVENT SERVICES</p>
-    <h2>Choose the level of support you need</h2>
-    <p>Start with one of our core packages, or create a custom combination for your event.</p>
-  </div>
-  <div className="grid three package-preview-grid">
-    <article className="packagePreviewCard">
-      <span>PLANNING SUPPORT</span><h3>Basic</h3><strong>$700</strong>
-      <p>Vendor coordination and layout planning for teams managing event day themselves.</p>
-    </article>
-    <article className="packagePreviewCard featuredPreview">
-      <span>MOST POPULAR</span><h3>Standard</h3><strong>$1,100</strong>
-      <p>Planning, vendor coordination, and hands-on management throughout event day.</p>
-    </article>
-    <article className="packagePreviewCard">
-      <span>FULL SERVICE</span><h3>Premium</h3><strong>$2,250</strong>
-      <p>Complete event support from planning and promotion through setup and teardown.</p>
-    </article>
-  </div>
-  <div className="package-preview-actions">
-    <a className="button primary" href="/services">Compare Event Packages</a>
-    <a className="button secondary" href="/services#build-your-own">Build Your Own Package</a>
+      <section className="container section services-invitation">
+  <div className="services-invitation-card">
+    <div>
+      <p className="sectionKicker">EVENT PLANNING SUPPORT</p>
+      <h2>Planning an event?</h2>
+      <p>Explore Panda’s event-planning packages or build a custom combination of services that fits your event.</p>
+    </div>
+    <a className="button primary" href="/services">View Event Services</a>
   </div>
 </section>
         <section id="contact" className="contact section">
