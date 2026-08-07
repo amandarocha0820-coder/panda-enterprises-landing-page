@@ -110,14 +110,8 @@ function EventDetail({ event, statusLabel }) {
   </main></div>;
 }
 
-function Router() {
-  return window.location.pathname.startsWith('/events') ? <EventsPortal/> : <App/>;
-}
 
-function App() {
-const [selectedServices, setSelectedServices] = useState([]);
-
-const services = [
+const customServices = [
   { name: 'Full Vendor Coordination', price: 750 },
   { name: 'Event Layout & Planning', price: 300 },
   { name: 'Day-of Event Management', price: 600 },
@@ -128,27 +122,181 @@ const services = [
   { name: 'Permit Guidance', price: 250 },
 ];
 
-const toggleService = (serviceName) => {
-  setSelectedServices((prev) =>
-    prev.includes(serviceName)
-      ? prev.filter((s) => s !== serviceName)
-      : [...prev, serviceName]
+function ServicesPage() {
+  const [selectedServices, setSelectedServices] = useState([]);
+  const toggleService = (serviceName) => setSelectedServices((current) =>
+    current.includes(serviceName) ? current.filter((name) => name !== serviceName) : [...current, serviceName]
   );
-};
+  const totalEstimate = customServices
+    .filter((service) => selectedServices.includes(service.name))
+    .reduce((sum, service) => sum + service.price, 0);
+  const services = customServices;
 
-const totalEstimate = services
-  .filter((service) => selectedServices.includes(service.name))
-  .reduce((sum, service) => sum + service.price, 0); 
+  return <div className="site services-site">
+    <header className="header"><div className="container nav">
+      <a className="brand" href="/"><img src={pandaLogo} alt="Panda Enterprises Logo" className="logoImage"/><div><strong>Panda Enterprises</strong><span>Creating Events People Remember</span></div></a>
+      <nav><a href="/">Home</a><a href="/services">Services</a><a href="/events">Events</a><a href="/#contact">Contact</a></nav>
+    </div></header>
+    <main>
+      <section className="services-page-hero"><div className="container">
+        <p className="pill">EVENT PLANNING SERVICES</p>
+        <h1>Support that fits your event.</h1>
+        <p>Choose a complete package or combine individual services. Panda Enterprises can manage the details you need while your team focuses on the experience.</p>
+        <div className="buttons"><a className="button primary" href="#packages">Compare packages</a><a className="button secondary" href="#build-your-own">Build your own</a></div>
+      </div></section>
+      <div id="packages">
+<section id="pricing" className="container section">
+  <div className="sectionTitle">
+    <h2>Event Services Packages</h2>
+    <p>Click each package to see what Panda Enterprises handles and what the client handles.</p>
+  </div>
 
-const vendorLinks = [
-  {
-    event: 'Upcoming Vendor Opportunities',
-    date: 'New events coming soon',
-    status: 'Join our vendor list to hear about future markets and events.',
-    link: 'https://forms.gle/7nG1Av17Kxa34zFT7'
-  },
-];
+  <div className="grid three">
+    <details className="packageCard">
+      <summary>
+        <h3>Basic Package</h3>
+        <p>Vendor Coordination + Layout Planning</p>
+        <strong>$700</strong>
+      </summary>
+      <div className="packageDetails">
+        <h4>Panda Enterprises:</h4>
+        <ul>
+          <li>Creates vendor application forms</li>
+          <li>Manages incoming applications and fills available space</li>
+          <li>Designs the event layout for smooth flow</li>
+        </ul>
 
+        <h4>The Client:</h4>
+        <ul>
+          <li>Handles all day-of event management</li>
+          <li>Manages vendor check-in and any issues during the event</li>
+        </ul>
+
+        <p><strong>Ideal for:</strong> Teams that want help getting organized but are comfortable running the event themselves.</p>
+        <a className="button primary full" href="/#contact">Ask About Basic</a>
+      </div>
+    </details>
+
+    <details className="packageCard featured">
+      <summary>
+        <h3>Standard Package</h3>
+        <p>Vendor Coordination + Layout Planning + Day-of Management</p>
+        <strong>$1,100</strong>
+        <em>Most Popular</em>
+      </summary>
+      <div className="packageDetails">
+        <h4>Panda Enterprises:</h4>
+        <ul>
+          <li>Creates vendor application forms</li>
+          <li>Manages applications and fills available space</li>
+          <li>Designs the event layout for smooth flow</li>
+          <li>Handles full day-of event management</li>
+          <li>Vendor check-in and placement</li>
+          <li>Helps maintain event organization and vendor guideline compliance</li>
+          <li>Coordinates timing and flow</li>
+          <li>Troubleshoots issues as they arise</li>
+          <li>Makes sure the event is easy for customers to navigate and enjoy</li>
+        </ul>
+
+        <h4>The Client:</h4>
+        <ul>
+          <li>Focuses on guests, fundraising, and overall experience</li>
+          <li>Does not manage vendors or logistics</li>
+        </ul>
+
+        <p><strong>Ideal for:</strong> Teams that want a well-run event without the stress of managing it themselves.</p>
+        <a className="button primary full" href="/#contact">Ask About Stress-Free</a>
+      </div>
+    </details>
+
+    <details className="packageCard">
+      <summary>
+        <h3>Premium Package</h3>
+        <p>Full-Service Event Management</p>
+        <strong>$2,250</strong>
+      </summary>
+      <div className="packageDetails">
+        <h4>Panda Enterprises:</h4>
+        <ul>
+          <li>Creates vendor application forms</li>
+          <li>Manages applications and fills available space</li>
+          <li>Designs the full event layout for optimal flow</li>
+          <li>Handles full day-of event management, including vendor coordination and issue resolution</li>
+          <li>Oversees setup and teardown</li>
+          <li>Provides marketing support and social media promotion</li>
+          <li>Coordinates volunteers, including scheduling, roles, and on-site direction</li>
+          <li>Provides permit guidance so the client knows what is required and where to obtain approvals</li>
+        </ul>
+
+        <h4>The Client:</h4>
+        <ul>
+          <li>Focuses on hosting, guests, and the overall event experience</li>
+          <li>Has minimal involvement in logistics and operations</li>
+        </ul>
+
+        <p><strong>Ideal for:</strong> A fully supported, hands-off event with professional execution from start to finish.</p>
+        <a className="button primary full" href="/#contact">Ask About Premium</a>
+      </div>
+    </details>
+  </div>
+
+  <p className="paymentNote">
+    A 20% non-refundable retainer is required at signing to secure your event date. Custom packages are available upon request.
+  </p>
+</section>
+
+<section id="build-your-own" className="container section">
+  <div className="sectionTitle">
+    <h2>Build Your Own Estimate</h2>
+
+    <p>
+      Select individual services to see an estimated total.
+      Packages may offer better overall value depending on your event needs.
+    </p>
+  </div>
+
+  <div className="estimateBox">
+    {services.map((service) => (
+      <label key={service.name} className="check">
+        <input
+          type="checkbox"
+          checked={selectedServices.includes(service.name)}
+          onChange={() => toggleService(service.name)}
+        />
+
+        <span>
+          {service.name} — ${service.price}
+        </span>
+      </label>
+    ))}
+
+    <div className="totalEstimate">
+      <span>Estimated Total</span>
+
+      <strong>${totalEstimate}</strong>
+
+      <p>
+        Estimates are for planning purposes only.
+        Final pricing depends on event size,
+        location, staffing, and scope.
+      </p>
+    </div>
+  </div>
+</section>
+        
+      </div>
+      <section className="services-cta"><div className="container"><div><span>READY TO TALK?</span><h2>Tell us what you’re planning.</h2><p>We’ll help you choose the right level of support and prepare a clear proposal.</p></div><a className="button primary" href="/#contact">Request Event Services</a></div></section>
+    </main>
+  </div>;
+}
+
+function Router() {
+  if (window.location.pathname.startsWith('/events')) return <EventsPortal/>;
+  if (window.location.pathname.startsWith('/services')) return <ServicesPage/>;
+  return <App/>;
+}
+
+function App() {
   return (
     <div className="site">
       <header className="header">
@@ -161,7 +309,7 @@ const vendorLinks = [
             </div>
           </div>
           <nav>
-            <a href="#services">Services</a>
+            <a href="/services">Services</a>
             <a href="/events">Events</a>
             <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
@@ -223,142 +371,29 @@ const vendorLinks = [
           </div>
         </section>
 
-      <section id="pricing" className="container section">
+      <section id="pricing" className="container section package-preview-section">
   <div className="sectionTitle">
-    <h2>Event Services Packages</h2>
-    <p>Click each package to see what Panda Enterprises handles and what the client handles.</p>
+    <p className="sectionKicker">EVENT SERVICES</p>
+    <h2>Choose the level of support you need</h2>
+    <p>Start with one of our core packages, or create a custom combination for your event.</p>
   </div>
-
-  <div className="grid three">
-    <details className="packageCard">
-      <summary>
-        <h3>Basic Package</h3>
-        <p>Vendor Coordination + Layout Planning</p>
-        <strong>$700</strong>
-      </summary>
-      <div className="packageDetails">
-        <h4>Panda Enterprises:</h4>
-        <ul>
-          <li>Creates vendor application forms</li>
-          <li>Manages incoming applications and fills available space</li>
-          <li>Designs the event layout for smooth flow</li>
-        </ul>
-
-        <h4>The Client:</h4>
-        <ul>
-          <li>Handles all day-of event management</li>
-          <li>Manages vendor check-in and any issues during the event</li>
-        </ul>
-
-        <p><strong>Ideal for:</strong> Teams that want help getting organized but are comfortable running the event themselves.</p>
-        <a className="button primary full" href="#contact">Ask About Basic</a>
-      </div>
-    </details>
-
-    <details className="packageCard featured">
-      <summary>
-        <h3>Standard Package</h3>
-        <p>Vendor Coordination + Layout Planning + Day-of Management</p>
-        <strong>$1,100</strong>
-        <em>Most Popular</em>
-      </summary>
-      <div className="packageDetails">
-        <h4>Panda Enterprises:</h4>
-        <ul>
-          <li>Creates vendor application forms</li>
-          <li>Manages applications and fills available space</li>
-          <li>Designs the event layout for smooth flow</li>
-          <li>Handles full day-of event management</li>
-          <li>Vendor check-in and placement</li>
-          <li>Helps maintain event organization and vendor guideline compliance</li>
-          <li>Coordinates timing and flow</li>
-          <li>Troubleshoots issues as they arise</li>
-          <li>Makes sure the event is easy for customers to navigate and enjoy</li>
-        </ul>
-
-        <h4>The Client:</h4>
-        <ul>
-          <li>Focuses on guests, fundraising, and overall experience</li>
-          <li>Does not manage vendors or logistics</li>
-        </ul>
-
-        <p><strong>Ideal for:</strong> Teams that want a well-run event without the stress of managing it themselves.</p>
-        <a className="button primary full" href="#contact">Ask About Stress-Free</a>
-      </div>
-    </details>
-
-    <details className="packageCard">
-      <summary>
-        <h3>Premium Package</h3>
-        <p>Full-Service Event Management</p>
-        <strong>$2,250</strong>
-      </summary>
-      <div className="packageDetails">
-        <h4>Panda Enterprises:</h4>
-        <ul>
-          <li>Creates vendor application forms</li>
-          <li>Manages applications and fills available space</li>
-          <li>Designs the full event layout for optimal flow</li>
-          <li>Handles full day-of event management, including vendor coordination and issue resolution</li>
-          <li>Oversees setup and teardown</li>
-          <li>Provides marketing support and social media promotion</li>
-          <li>Coordinates volunteers, including scheduling, roles, and on-site direction</li>
-          <li>Provides permit guidance so the client knows what is required and where to obtain approvals</li>
-        </ul>
-
-        <h4>The Client:</h4>
-        <ul>
-          <li>Focuses on hosting, guests, and the overall event experience</li>
-          <li>Has minimal involvement in logistics and operations</li>
-        </ul>
-
-        <p><strong>Ideal for:</strong> A fully supported, hands-off event with professional execution from start to finish.</p>
-        <a className="button primary full" href="#contact">Ask About Premium</a>
-      </div>
-    </details>
+  <div className="grid three package-preview-grid">
+    <article className="packagePreviewCard">
+      <span>PLANNING SUPPORT</span><h3>Basic</h3><strong>$700</strong>
+      <p>Vendor coordination and layout planning for teams managing event day themselves.</p>
+    </article>
+    <article className="packagePreviewCard featuredPreview">
+      <span>MOST POPULAR</span><h3>Standard</h3><strong>$1,100</strong>
+      <p>Planning, vendor coordination, and hands-on management throughout event day.</p>
+    </article>
+    <article className="packagePreviewCard">
+      <span>FULL SERVICE</span><h3>Premium</h3><strong>$2,250</strong>
+      <p>Complete event support from planning and promotion through setup and teardown.</p>
+    </article>
   </div>
-
-  <p className="paymentNote">
-    A 20% non-refundable retainer is required at signing to secure your event date. Custom packages are available upon request.
-  </p>
-</section>
-
-<section className="container section">
-  <div className="sectionTitle">
-    <h2>Build Your Own Estimate</h2>
-
-    <p>
-      Select individual services to see an estimated total.
-      Packages may offer better overall value depending on your event needs.
-    </p>
-  </div>
-
-  <div className="estimateBox">
-    {services.map((service) => (
-      <label key={service.name} className="check">
-        <input
-          type="checkbox"
-          checked={selectedServices.includes(service.name)}
-          onChange={() => toggleService(service.name)}
-        />
-
-        <span>
-          {service.name} — ${service.price}
-        </span>
-      </label>
-    ))}
-
-    <div className="totalEstimate">
-      <span>Estimated Total</span>
-
-      <strong>${totalEstimate}</strong>
-
-      <p>
-        Estimates are for planning purposes only.
-        Final pricing depends on event size,
-        location, staffing, and scope.
-      </p>
-    </div>
+  <div className="package-preview-actions">
+    <a className="button primary" href="/services">Compare Event Packages</a>
+    <a className="button secondary" href="/services#build-your-own">Build Your Own Package</a>
   </div>
 </section>
         <section id="contact" className="contact section">
