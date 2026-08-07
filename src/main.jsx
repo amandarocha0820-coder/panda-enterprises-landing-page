@@ -333,15 +333,8 @@ function App() {
 </p>
 
             <div className="buttons">
-              <a className="button primary" href="#contact">Request Event Services</a>
-<a className="button secondary" href="/events">Explore Upcoming Events</a>
-<a
-  className="button secondary"
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=Panda.Enterprises.712@gmail.com&su=Event%20Inquiry"
-  target="_blank"
->
-  Email Panda Enterprises
-</a>
+              <a className="button primary hero-service-cta" href="#contact">Request Event Services</a>
+<a className="button hero-events-cta" href="/events">Explore Upcoming Events</a>
           </div>
                 </div>
 <div className="heroCard videoCard">
