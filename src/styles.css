@@ -532,3 +532,21 @@ select {
 
 /* Simple homepage doorway to the full Services page */
 .services-invitation{padding-top:54px;padding-bottom:64px}.services-invitation-card{display:flex;align-items:center;justify-content:space-between;gap:34px;border:1px solid rgba(192,132,252,.24);border-radius:28px;background:linear-gradient(135deg,rgba(147,51,234,.17),rgba(255,255,255,.05));padding:34px 38px;box-shadow:0 14px 36px rgba(0,0,0,.2)}.services-invitation-card h2{margin:7px 0 9px;color:#fff;font-size:35px}.services-invitation-card>div>p:last-child{max-width:720px;margin:0;color:#d4d4d8;font-size:16px;line-height:1.6}.services-invitation-card>.button{flex:0 0 auto;white-space:nowrap}@media(max-width:760px){.services-invitation-card{align-items:stretch;flex-direction:column;padding:27px}.services-invitation-card>.button{width:100%}}
+
+
+/* Two clear homepage paths */
+@media (min-width: 801px) {
+  .hero .buttons {
+    gap: 14px;
+  }
+
+  .hero .buttons .hero-service-cta,
+  .hero .buttons .hero-events-cta {
+    padding: 16px 24px;
+    border-radius: 17px;
+    font-size: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.28);
+  }
+}
+
+.hero-service-cta{background:linear-gradient(135deg,#a33af0,#7421af);border:1px solid #b968ed}.hero-service-cta:hover{background:linear-gradient(135deg,#b34cff,#8125c1)}.hero-events-cta{background:#fff;color:#65208e;border:1px solid #eadcf1}.hero-events-cta:hover{background:#f2e5f8;color:#4d166e;transform:translateY(-2px)}
