@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/space-for-siouxland",
+      "destination": "/space-for-siouxland/index.html"
+    },
+    {
+      "source": "/space-for-siouxland/",
+      "destination": "/space-for-siouxland/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
